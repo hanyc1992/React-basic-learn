@@ -13,3 +13,10 @@
         * 使用的时候{this.props.propName}
     + state是被component管理并且更新的
         * 使用的时候{this.state.stateName}
+- 两种创建react component的方法
+    + extends React.Component
+        * 使用props的时候是`{this.props.propName}`
+        * 可以包含state, 使用的时候是`{this.state.stateName}`
+    + define a stateless function, which simply returns JSX
+        * 使用props的时候是`{props.propName}` - 这里props是作为参数在函数传进去的
+        * 无状态, stateless

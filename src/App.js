@@ -17,7 +17,7 @@ class App extends React.Component {
    */
   update(e) {
     //setState只会override我们在这里设置的值,不会影响其他的值
-    this.setState({txt: e.target.value})
+    this.setState({txt: e.target.value});
   }
 
   render() {
@@ -28,7 +28,9 @@ class App extends React.Component {
           <h1>hello worlds</h1>
           <h2>{this.props.txt}</h2>
           <h3>{this.state.txt}</h3>
-          <input type="text" onChange={this.update.bind(this)}/>
+          <Widget update={this.update.bind(this)} />
+          <Widget update={this.update.bind(this)} />
+          <Widget update={this.update.bind(this)} />
         </div>
     )
     //这句话等价于  return React.createElement('h1', null, `hello world`)
@@ -53,5 +55,9 @@ App.defaultProps = {
 //const App = () => <h1>hello world</h1>
 
 //两者区别: class component可以包含state,但是function component是无状态的
+
+const Widget = (props) =>
+    <input type="text" onChange={props.update}/>
+
 
 export default App
