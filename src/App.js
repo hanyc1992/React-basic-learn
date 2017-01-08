@@ -28,9 +28,9 @@ class App extends React.Component {
           <h1>hello worlds</h1>
           <h2>{this.props.txt}</h2>
           <h3>{this.state.txt}</h3>
-          <Widget update={this.update.bind(this)} />
-          <Widget update={this.update.bind(this)} />
-          <Widget update={this.update.bind(this)} />
+          <Widget update={this.update.bind(this)} foo={6} bar="dddd"/>
+          <Widget update={this.update.bind(this)} foo={6} bar="dddd" />
+          <Widget update={this.update.bind(this)} foo={6} bar="dddd" />
         </div>
     )
     //这句话等价于  return React.createElement('h1', null, `hello world`)
@@ -59,5 +59,23 @@ App.defaultProps = {
 const Widget = (props) =>
     <input type="text" onChange={props.update}/>
 
+Widget.propTypes = {
+  //we can use React built-in type & `isRequired` to validate
+  foo: React.PropTypes.number.isRequired,
+  /**
+   * we can also define a function to customize our validation
+   * @param props, all the props defined in this component
+   * @param propName, the specific prop name, this this case is 'bar'
+   * @param component, the react componet
+   */
+  bar: function(props, propName, component) {
+    if (!(propName in props)) {
+      return new Error(`missing ${propName}`);
+    }
+    if (props[propName].length < 3) {
+      return new Error(`${propName} was too short`);
+    }
+  }
+}
 
 export default App
