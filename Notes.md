@@ -20,3 +20,7 @@
     + define a stateless function, which simply returns JSX
         * 使用props的时候是`{props.propName}` - 这里props是作为参数在函数传进去的
         * 无状态, stateless
+- 关于{this.props.children}
+    + 被react框架自动设置的一个props属性
+    + 对于某一个component使用`{this.props.children}`,可以类似**理解成**这个component的innerHTML(但是不一样,会套用createElement,结果变成props.children?)
+        *详细可见[官方文档](https://facebook.github.io/react/docs/jsx-in-depth.html#children-in-jsx)
