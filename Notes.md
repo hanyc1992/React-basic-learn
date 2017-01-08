@@ -8,3 +8,8 @@
     + all JSX compiled into javascript
         * 实际上会使用`React.createElement`函数来创建
         * 这就决定了只能return 唯一一个element
+- props & states
+    + props是static value, it's not meant to be changed by out component
+        * 使用的时候{this.props.propName}
+    + state是被component管理并且更新的
+        * 使用的时候{this.state.stateName}

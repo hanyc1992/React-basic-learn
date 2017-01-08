@@ -4,6 +4,22 @@ import React from 'react';
 
 //#1  extends React.Component
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      txt: 'state txt!'
+    }
+  }
+
+  /**
+   * 不是standard method,只是custom method
+   * @param e, which is an event
+   */
+  update(e) {
+    //setState只会override我们在这里设置的值,不会影响其他的值
+    this.setState({txt: e.target.value})
+  }
+
   render() {
     //using JSX, which is a HTML like syntax
     //all JSX compiled into javascript(using React.createElement)
@@ -11,6 +27,8 @@ class App extends React.Component {
         <div>
           <h1>hello worlds</h1>
           <h2>{this.props.txt}</h2>
+          <h3>{this.state.txt}</h3>
+          <input type="text" onChange={this.update.bind(this)}/>
         </div>
     )
     //这句话等价于  return React.createElement('h1', null, `hello world`)
