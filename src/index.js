@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';//enable us to play react component in the cont
 import App from './App';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    //we can pass params into component by using 'props';
+      //and in component, we can use the 'props' by typing `{this.props.txt}`
+    <App txt="this is txt prop" cat={5}/>,
+    document.getElementById('root')
 );
