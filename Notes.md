@@ -24,3 +24,7 @@
     + 被react框架自动设置的一个props属性
     + 对于某一个component使用`{this.props.children}`,可以类似**理解成**这个component的innerHTML(但是不一样,会套用createElement,结果变成props.children?)
         *详细可见[官方文档](https://facebook.github.io/react/docs/jsx-in-depth.html#children-in-jsx)
+- `this.refs.refName`
+    + 在elements里加入attribute: `ref="refName"`
+    + 然后,`this.refs`返回所有标注了`ref`的elements.然后可以按照refName来指定出具体的那个element
+    + 但是注意: **stateless function components cannot be given refs!!!**

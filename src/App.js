@@ -17,7 +17,13 @@ class App extends React.Component {
    */
   update(e) {
     //setState只会override我们在这里设置的值,不会影响其他的值
-    this.setState({txt: e.target.value});
+    this.setState({
+      txt: e.target.value,
+      //关于refs的备注: stateless function components cannot be given refs!!!
+        //`this.refs`返回所有标注了`ref`的elements,然后根据标注名来索引
+        //`this.refs`可以帮助找到指定的某一个element(有些类似elementId?)
+      aa: this.refs.aa.value
+    });
   }
 
   render() {
@@ -30,7 +36,8 @@ class App extends React.Component {
           <h3>{this.state.txt}</h3>
           <Widget update={this.update.bind(this)} foo={6} bar="dddd"/>
           <Widget update={this.update.bind(this)} foo={6} bar="dddd" />
-          <Widget update={this.update.bind(this)} foo={6} bar="dddd" />
+          <hr/> <h3>{this.state.aa}</h3>
+          <input ref="aa" onChange={this.update.bind(this)}/>
         </div>
     )
     //这句话等价于  return React.createElement('h1', null, `hello world`)
