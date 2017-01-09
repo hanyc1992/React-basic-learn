@@ -28,3 +28,19 @@
     + 在elements里加入attribute: `ref="refName"`
     + 然后,`this.refs`返回所有标注了`ref`的elements.然后可以按照refName来指定出具体的那个element
     + 但是注意: **stateless function components cannot be given refs!!!**
+    
+    
+### React component lifecycle
+- 当component加到DOM里的时候,叫作**mounting**
+    + 如果只是修改component里面的值,这个不是mounting
+- 当component从DOM里移除的时候,叫作**unmounting**
+
+##### Mounting lifecycle phrase
+1. componentWillMount(): right before component mount into the DOM
+2. componentDidMount(): fire off once our component has actually been mounted to the DOM
+    - 注意,Mount的时候,先是componentWillMount(),然后是render(),最后才是mount成功调用componentDidMount()
+    
+##### Unmounting lifecycle phrase
+1. componentWillUnmount(): fire off when our component is about to leave the DOM
+    - 备注: 可以使用`ReactDOM.unmountComponentAtNode(document.getElementById('a'))`来unmount一个component
+    - 但是首先要先 `import ReactDOM from 'react-dom';`,来让我们可以 play react component in the context of DOM
