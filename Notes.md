@@ -44,3 +44,4 @@
 1. componentWillUnmount(): fire off when our component is about to leave the DOM
     - 备注: 可以使用`ReactDOM.unmountComponentAtNode(document.getElementById('a'))`来unmount一个component
     - 但是首先要先 `import ReactDOM from 'react-dom';`,来让我们可以 play react component in the context of DOM
+    - 可以在以上这些mounting/unmounting function里设置/改变state
