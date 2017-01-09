@@ -5,7 +5,7 @@ import React from 'react';
 //#1  extends React.Component
 class App extends React.Component {
   constructor() {
-    super();
+    super();//super method is used to get our context
     this.state = {
       txt: 'state txt!'
     }

@@ -53,3 +53,9 @@
 - `shouldComponentUpdate(nextProps, nextState)`: 返回一个true/false,表示是不是要re-render
     + 只会影响是不是要re-render,不会影响props和states的更新
 - `componentDidUpdate(prevProps, preState)`:fire off when a component finishs re-render
+
+
+### 具体好的例子
+###### 筛选的功能
+- 对一个array,可以利用array.map来在JSX里render出来
+    + 而且在render之前,可以先用array.filter来筛选那些需要render,这样就可以起到**筛选的功能**
