@@ -59,3 +59,24 @@
 ###### 筛选的功能
 - 对一个array,可以利用array.map来在JSX里render出来
     + 而且在render之前,可以先用array.filter来筛选那些需要render,这样就可以起到**筛选的功能**
+    
+----
+
+### 使用Babel来compile JSX
+- 首先在html里引入`<script src="http://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>`
+    + 这就会加入`window.Babel`这个变量
+- `window.Babel.transform(code, {preset: ['es2015', 'react']})`
+    + 告诉说用这两个preset来compile code
+- 这只是一种方法,实际项目编译可能不是这么写的
+
+----
+
+### JSX深究
+- Fundamentally, JSX just provides syntactic sugar for the `React.createElement(component, props, ...children)` function
+
+### children
+- `children`是一个props上的属性.是在an opening tag and a closing tag之间的content
+- **注意:**如果content多余一个,children就是一个array; 但是若只有一个,就是一个单独的Object
+- `React.Children.toArray(this.props.children)`会将children转换成array,不管是不是多余一个
+- `React.Children.only(this.props.children)`只有当children只有一个的时候回返回这个children;
+    + 若多余一个,就会报error
