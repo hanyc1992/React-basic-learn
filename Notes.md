@@ -80,3 +80,8 @@
 - `React.Children.toArray(this.props.children)`会将children转换成array,不管是不是多余一个
 - `React.Children.only(this.props.children)`只有当children只有一个的时候回返回这个children;
     + 若多余一个,就会报error
+- !!! `props.children` isn't the actual children !!!
+    + It's a descriptor of the children, you don't actually have anything to change(change the props, add functionality)
+    + we can only read from it
+- 可以使用`React.cloneElement(element,[props],[...children])`来新建一个element,然后再修改
+    + 常用的用法之一就是: extend functionality of children components
